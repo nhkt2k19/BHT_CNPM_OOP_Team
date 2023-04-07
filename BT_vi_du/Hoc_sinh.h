@@ -5,8 +5,8 @@ using namespace std;
 
 class Hoc_sinh {
 public:
-	void Nhap(istream& is);
-	void Xuat(ostream& os);
+	void Nhap();
+	void Xuat();
 private:
 	int MSSV;
 	string ho_ten;
@@ -15,15 +15,15 @@ private:
 	double diemtb;
 };
 
-void Hoc_sinh::Nhap(istream& is) {
+void Hoc_sinh::Nhap() {
 	cin >> MSSV;
-	getline(is, ho_ten);
+	getline(cin, ho_ten);
 	cin >> toan;
 	cin >> van; 
 	diemtb = (toan + van) / 2;
 }
 
-void Hoc_sinh::Xuat(ostream& os) {
-	os << MSSV << endl << ho_ten << endl << toan << endl << van << endl << diemtb << endl;
+void Hoc_sinh::Xuat() {
+	cout << MSSV << endl << ho_ten << endl << toan << endl << van << endl << diemtb << endl;
 }
 
