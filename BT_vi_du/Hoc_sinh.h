@@ -29,6 +29,6 @@ void Hoc_sinh::Nhap() {
 }
 
 void Hoc_sinh::Xuat() {
-	cout << MSSV << endl << ho_ten << endl << toan << endl << van << endl << diemtb << endl;
+	cout << MSSV << endl << ho_ten << endl << toan << endl << van << endl << diemtb;
 }
 
