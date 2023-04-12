@@ -13,6 +13,13 @@ private:
 	void Xuly();
 protected:
 public:
+	Hoc_sinh() {
+		MSSV = 0;
+		ho_ten = "";
+		toan = 0.0;
+		van = 0.0;
+		diemtb = 0.0;
+	}
 	double get_toan();
 	void set_toan(double);
 	void Nhap();
@@ -24,10 +31,16 @@ void Hoc_sinh::Xuly() {
 }
 
 void Hoc_sinh::Nhap() {
+	cout << "Nhap MSSV: ";
 	cin >> MSSV;
+	cout << "Nhap ho ten: ";
+	cin.ignore();
 	getline(cin, ho_ten);
+	cout << "Nhap diem toan: ";
 	cin >> toan;
+	cout << "Nhap diem van: ";
 	cin >> van; 
+	this->Xuly();
 }
 
 void Hoc_sinh::Xuat() {
@@ -45,4 +58,50 @@ void Hoc_sinh::set_toan(double toan) {
 	this->toan = toan;
 	this->Xuly(); // tính lại điểm trung bình
 }
+
+class DS_Hoc_sinh {
+public:
+	DS_Hoc_sinh() {
+		size = 0;
+		arr = NULL;
+	}
+	DS_Hoc_sinh(int size) {
+		this->size = size;
+		arr = new Hoc_sinh[size];
+	}
+	DS_Hoc_sinh(const DS_Hoc_sinh& rhs) {
+		size = rhs.size;
+		arr = new Hoc_sinh[size];
+		for (int i = 0; i < size; ++i) {
+			arr[i] = rhs.arr[i];
+		}
+	}
+	DS_Hoc_sinh& operator= (const DS_Hoc_sinh& rhs) {
+		size = rhs.size;
+		arr = new Hoc_sinh[size];
+		for (int i = 0; i < size; ++i) {
+			arr[i] = rhs.arr[i];
+		}
+		return *this;
+	}
+	void Nhap() {
+		for (int i = 0; i < size; ++i) {
+			cout << "Nhap du lieu hoc sinh thu " << i+1 << " :" << endl;
+			arr[i].Nhap();
+		}
+	}
+	void Xuat() {
+		for (int i = 0; i < size; ++i) {
+			arr[i].Xuat();
+			cout << endl;
+		}
+	}
+	~DS_Hoc_sinh() {
+		cout << "Destructor has been called" << endl;
+		delete[] arr;
+	}
+private:
+	Hoc_sinh* arr;
+	int size;
+};
 
