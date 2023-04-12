@@ -77,6 +77,7 @@ public:
 		}
 	}
 	DS_Hoc_sinh& operator= (const DS_Hoc_sinh& rhs) {
+		delete[] arr;
 		size = rhs.size;
 		arr = new Hoc_sinh[size];
 		for (int i = 0; i < size; ++i) {
