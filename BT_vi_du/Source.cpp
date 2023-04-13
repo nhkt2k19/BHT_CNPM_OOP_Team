@@ -5,7 +5,7 @@ int main()
 {
 	DS_Hoc_sinh item2;
 	{
-		DS_Hoc_sinh item(3);
+		DS_Hoc_sinh item(4);
 		item.Nhap();
 		item.Xuat();
 		item2 = item;

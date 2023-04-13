@@ -14,6 +14,7 @@ private:
 protected:
 public:
 	Hoc_sinh() {
+		cout << "Default constructor of Hoc_sinh has been called" << endl;
 		MSSV = 0;
 		ho_ten = "";
 		toan = 0.0;
@@ -62,14 +63,17 @@ void Hoc_sinh::set_toan(double toan) {
 class DS_Hoc_sinh {
 public:
 	DS_Hoc_sinh() {
+		cout << "Default constructor of DS_Hoc_sinh has been called" << endl;
 		size = 0;
 		arr = NULL;
 	}
 	DS_Hoc_sinh(int size) {
+		cout << "Specialized constructor of DS_Hoc_sinh has been called" << endl;
 		this->size = size;
 		arr = new Hoc_sinh[size];
 	}
 	DS_Hoc_sinh(const DS_Hoc_sinh& rhs) {
+		cout << "Copy constructor of DS_Hoc_sinh has been called" << endl;
 		size = rhs.size;
 		arr = new Hoc_sinh[size];
 		for (int i = 0; i < size; ++i) {
@@ -77,6 +81,7 @@ public:
 		}
 	}
 	DS_Hoc_sinh& operator= (const DS_Hoc_sinh& rhs) {
+		cout << "Assignment operator of DS_Hoc_sinh has been called" << endl;
 		delete[] arr;
 		size = rhs.size;
 		arr = new Hoc_sinh[size];
@@ -101,6 +106,7 @@ public:
 		cout << "Destructor has been called" << endl;
 		delete[] arr;
 	}
+	//test;
 private:
 	Hoc_sinh* arr;
 	int size;
