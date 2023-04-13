@@ -107,6 +107,7 @@ public:
 		delete[] arr;
 	}
 	//test;
+	//test4;
 private:
 	Hoc_sinh* arr;
 	int size;
