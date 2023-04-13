@@ -112,6 +112,7 @@ public:
 private:
 	Hoc_sinh* arr;
 	int size;
+	//add test 0;
 	//test;
 	//test2;
 	//test3;
