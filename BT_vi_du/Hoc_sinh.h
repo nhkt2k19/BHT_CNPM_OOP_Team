@@ -106,6 +106,7 @@ public:
 		cout << "Destructor has been called" << endl;
 		delete[] arr;
 	}
+	//test6;
 	//test;
 private:
 	Hoc_sinh* arr;
