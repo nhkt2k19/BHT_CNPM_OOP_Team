@@ -111,5 +111,6 @@ private:
 	Hoc_sinh* arr;
 	int size;
 	//test;
+	//test2;
 };
 
