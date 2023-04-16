@@ -6,7 +6,7 @@ using namespace std;
 class Hoc_sinh {
 private:
 	int MSSV;
-	string ho_ten ;
+	string ho_ten;
 	double toan;
 	double van;
 	double diemtb;
@@ -63,7 +63,7 @@ void Hoc_sinh::Nhap() {
 	cout << "Nhap diem toan: ";
 	cin >> toan;
 	cout << "Nhap diem van: ";
-	cin >> van; 
+	cin >> van;
 	this->Xuly();
 }
 
@@ -83,55 +83,22 @@ void Hoc_sinh::set_toan(double toan) {
 	this->Xuly(); // tính lại điểm trung bình
 }
 
-class Lop_hoc {
-public:
-	Lop_hoc() {
-		cout << "Default constructor of DS_Hoc_sinh has been called" << endl;
-		size = 0;
-		arr = NULL;
-	}
-	Lop_hoc(int size) {
-		cout << "Specialized constructor of DS_Hoc_sinh has been called" << endl;
-		this->size = size;
-		arr = new Hoc_sinh[size];
-	}
-	
-	Lop_hoc(const Lop_hoc& temp) {
-		size = temp.size;
-		arr = new Hoc_sinh[size];
-		for (int i = 0; i < size; ++i) {
-			arr[i] = temp.arr[i];
-		}
-	} 
-	Lop_hoc& operator= (const Lop_hoc& rhs) {
-		cout << "Assignment operator of DS_Hoc_sinh has been called" << endl;
-		delete[] arr;
-		size = rhs.size;
-		arr = new Hoc_sinh[size];
-		for (int i = 0; i < size; ++i) {
-			arr[i] = rhs.arr[i];
-		}
-		return *this;
-	}
-	void Nhap() {
-		for (int i = 0; i < size; ++i) {
-			cout << "Nhap du lieu hoc sinh thu " << i+1 << " :" << endl;
-			arr[i].Nhap();
-		}
-	}
-	void Xuat() {
-		for (int i = 0; i < size; ++i) {
-			arr[i].Xuat();
-			cout << endl;
-		}
-	}
-	~Lop_hoc() {
-		cout << "Destructor has been called" << endl;
-		delete[] arr;
-	}
 
+class Lop_hoc {
 private:
 	Hoc_sinh* arr;
 	int size;
-};
+public:
+	Lop_hoc(int size) {
+		this->size = size;
+		arr = new Hoc_sinh[size];
+	}
+	Lop_hoc(const Lop_hoc& temp) {
+		this->arr = temp.arr;// sau bước này this->arr và temp.arr 
+		                     // cùng trỏ vào một ô nhớ                  
+		this->size = temp.size;
+	}
+	~Lop_hoc() { 
 
+	}
+};
