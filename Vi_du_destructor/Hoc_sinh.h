@@ -5,6 +5,7 @@ using namespace std;
 
 class Hoc_sinh {
 private:
+	static int demHS;
 	int MSSV;
 	string ho_ten;
 	double toan;
@@ -13,13 +14,11 @@ private:
 	void Xuly();
 
 public:
+	// Phương thức thiết lập mặc định:
 	Hoc_sinh() {
-		cout << "Default constructor of Hoc_sinh has been called" << endl;
-		MSSV = 0;
-		ho_ten = "Unknown";
-		toan = 0.0;
-		van = 0.0;
-		diemtb = 0.0;
+		// ... khởi tạo các giá trị mặc định
+		demHS++;
+		// truy cập đến demHS mà không cần toán tử phạm vi
 	}
 	Hoc_sinh(int id, string name, int diem_toan, int diem_van) {
 		cout << "Parameterized constructor has been called" << endl;
@@ -102,3 +101,12 @@ public:
 
 	}
 };
+
+class Hoc_sinh2 {
+private:
+	// khai báo thuộc tính tĩnh demHS
+	static int demHS;
+	// ... phần còn lại như các ví dụ trên
+};
+// định nghĩa và khởi tạo demHS
+int Hoc_sinh2::demHS = 0;
